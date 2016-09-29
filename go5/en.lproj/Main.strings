@@ -1,0 +1,15 @@
+
+/* Class = "UINavigationItem"; title = "SETTINGS"; ObjectID = "DXB-iK-5fc"; */
+"DXB-iK-5fc.title" = "SETTINGS";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "J8i-Ca-7mk"; */
+"J8i-Ca-7mk.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "ENTER PASSWORD"; ObjectID = "cZx-tR-ZMK"; */
+"cZx-tR-ZMK.placeholder" = "ENTER PASSWORD";
+
+/* Class = "UIButton"; normalTitle = "REGISTRATION"; ObjectID = "sFk-gs-gpK"; */
+"sFk-gs-gpK.normalTitle" = "REGISTRATION";
+
+/* Class = "UITextField"; placeholder = "ENTER EMAIL"; ObjectID = "wlV-ni-FaC"; */
+"wlV-ni-FaC.placeholder" = "ENTER EMAIL";

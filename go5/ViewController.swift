@@ -1,15 +1,7 @@
-//
-//  ViewController.swift
-//  go5
-//
-//  Created by Александр on 26.09.16.
-//  Copyright © 2016 Александр. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var eMail: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var correctLabel: UILabel!
@@ -25,13 +17,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
     func placeholderColor(){
         eMail.attributedPlaceholder = NSAttributedString(string: "EMAIL", attributes:[NSForegroundColorAttributeName : UIColor.black])
         password.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes:[NSForegroundColorAttributeName : UIColor.black])
     }
-
+    
     @IBAction func loginButton(_ sender: AnyObject) {
         if (eMail.text == "test@test.ru" && password.text == "password") {
             correctLabel.text = "Success"
@@ -62,4 +54,3 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
 }
-

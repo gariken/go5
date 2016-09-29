@@ -16,7 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        UITabBar.appearance().isTranslucent = false
+        //UITabBar.appearance().tintColor = UIColor(red: 0.290, green: 0.725, blue: 0.137, alpha: 1.000)
+        UITabBar.appearance().tintColor = UIColorFromRGB(colorCode: "4AB923")
+        UITabBar.appearance().backgroundColor = UIColor.white
+        UINavigationBar.appearance().backgroundColor = UIColor.white
+        
         return true
     }
 
@@ -46,6 +52,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             // Fallback on earlier versions
         }
+    }
+    
+    func UIColorFromRGB(colorCode: String, alpha: Float = 1.0) -> UIColor {
+    let scanner = Scanner(string:colorCode)
+    var color:UInt32 = 0
+    scanner.scanHexInt32(&color)
+    
+    let mask = 0x000000FF
+    let r = CGFloat(Float(Int(color >> 16) & mask)/255.0)
+    let g = CGFloat(Float(Int(color >> 8) & mask)/255.0)
+    let b = CGFloat(Float(Int(color) & mask)/255.0)
+    
+    return UIColor(red: r, green: g, blue: b, alpha: CGFloat(alpha))
     }
 
     // MARK: - Core Data stack
