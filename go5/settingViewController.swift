@@ -12,7 +12,11 @@ class settingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     internal var first = ["NAME", "SURNAME", "EMAIL", "...", "PASSWORD"]
     internal var second = ["USER", "SURNAME", "USER@USER.com", "***"]
-
+    var array = [ ["Moscow", "Saint Petersburg", "Novosibirsk", "Novosibirsk", "Nizhny Novgorod", "Samara", "Omsk" ],
+                  
+                  ["Kiyv", "Odessa", "Donetsk", "Harkiv", "Lviv", "Uzhgorod", "Zhytomyr", "Luhansk", "Mikolayv", "Kherson"],
+                  
+                  ["Berlin", "Hamburg", "Munich", "Cologne", "Frankfurt", "Stuttgart", "Düsseldorf", "Dortmund", "Essen", "Bremen"]]
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -24,28 +28,24 @@ class settingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return array.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return array[section].count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! settingCell
         
-        cell.labelOne.text = first[indexPath.row]
-        cell.labelTwo.text = second[indexPath.row]
+        cell.labelOne?.text = array[indexPath.section][indexPath.row]
         
         return cell
     }
-    
-    // MARK:  UITableViewDelegate Methods
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-        
-    }
+
+ 
+
 
 
 
