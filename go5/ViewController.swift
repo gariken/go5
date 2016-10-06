@@ -28,6 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if (eMail.text == "test@test.ru" && password.text == "password") {
             correctLabel.text = "Success"
             correctLabel.textColor = UIColor.green
+            self.performSegue(withIdentifier: "go", sender: self)
         }
         else {
             correctLabel.text = "The email or password is incorrect."
