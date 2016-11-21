@@ -21,16 +21,14 @@ class registrationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailRegistration: UITextField!
     @IBOutlet weak var passwordRegistration: UITextField!
-    @IBOutlet weak var repeatPassword: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        repeatPassword.delegate = self
         passwordRegistration.delegate = self
         toolbar()
-       
+        alerView()
     }
 
     @IBAction func registrationButton(_ sender: Any) {
@@ -50,12 +48,8 @@ class registrationViewController: UIViewController, UITextFieldDelegate {
         newUSer.setValue(login, forKey: "login")
         newUSer.setValue(password, forKey: "password")
         
-        if ((emailRegistration.text?.isEmpty)! || (passwordRegistration.text?.isEmpty)! || (repeatPassword.text?.isEmpty)! ){
+        if ((emailRegistration.text?.isEmpty)! || (passwordRegistration.text?.isEmpty)!) {
             errorLabel.text = "пусто, пусто"
-        }
-            
-        else if(passwordRegistration.text != repeatPassword.text){
-            errorLabel.text = "Пароли не совпадают"
         }
             
         else{
@@ -97,17 +91,28 @@ class registrationViewController: UIViewController, UITextFieldDelegate {
     /***********/
     
     
+    func alerView(){
+        let alertController = UIAlertController(title: "Регистрация", message: "Вы успешно зарегистрировались", preferredStyle: UIAlertControllerStyle.alert)
+        let okButton = UIAlertAction(title: "Ок", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            print("ok")
+        }
+        
+        alertController.addAction(okButton)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
     func toolbar(){
         let toolbar = UIToolbar.init()
         toolbar.sizeToFit()
         let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(ViewController.dismissKeyboard))
         toolbar.items = [barButton]
-        repeatPassword.inputAccessoryView = toolbar
         passwordRegistration.inputAccessoryView = toolbar
     }
     
     func dismissKeyboard(){
-        repeatPassword.resignFirstResponder()
         passwordRegistration.resignFirstResponder()
     }
     

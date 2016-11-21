@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C2F3C23425A9D30125AC169 /* libPods-go5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C06B1A548AFE3BBBC9A8E853 /* libPods-go5.a */; };
 		1F00CCC41DC75DEA003871BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F00CCC31DC75DEA003871BB /* GoogleService-Info.plist */; };
 		1F00CCC81DC76910003871BB /* registrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F00CCC71DC76910003871BB /* registrationViewController.swift */; };
 		1F89DBED1D987B9600397A69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89DBEC1D987B9600397A69 /* AppDelegate.swift */; };
@@ -21,7 +22,6 @@
 		1FBCEBE21D99E0B3005EB2D7 /* tabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBCEBE11D99E0B3005EB2D7 /* tabBar.swift */; };
 		1FFBDDC31D9C9CBE000E2D03 /* settingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFBDDC21D9C9CBE000E2D03 /* settingCell.swift */; };
 		1FFBDDC51D9C9D1D000E2D03 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFBDDC41D9C9D1D000E2D03 /* settingViewController.swift */; };
-		EEF664D6677FBB14BD21D99E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7F72BFBDFD4A2BCDDCD661 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,9 +41,9 @@
 		1FBCEBE11D99E0B3005EB2D7 /* tabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tabBar.swift; sourceTree = "<group>"; };
 		1FFBDDC21D9C9CBE000E2D03 /* settingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingCell.swift; sourceTree = "<group>"; };
 		1FFBDDC41D9C9D1D000E2D03 /* settingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
-		3D2FC7EC05AB39DFCC85B809 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		7E7F72BFBDFD4A2BCDDCD661 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD8EC657D932445D3DC96331 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C06B1A548AFE3BBBC9A8E853 /* libPods-go5.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-go5.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE5942260DF56F8DE42BCF3E /* Pods-go5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-go5.release.xcconfig"; path = "Pods/Target Support Files/Pods-go5/Pods-go5.release.xcconfig"; sourceTree = "<group>"; };
+		E5AE7A5B9EAFCD5296AAB1D2 /* Pods-go5.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-go5.debug.xcconfig"; path = "Pods/Target Support Files/Pods-go5/Pods-go5.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEF664D6677FBB14BD21D99E /* libPods.a in Frameworks */,
+				0C2F3C23425A9D30125AC169 /* libPods-go5.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,8 +72,8 @@
 				1F89DC011D988B3200397A69 /* content */,
 				1F89DBEB1D987B9600397A69 /* go5 */,
 				1F89DBEA1D987B9600397A69 /* Products */,
-				E9827A33C1DB5DEEBDEC4066 /* Pods */,
-				A62809C61ABDE57FCCB971B1 /* Frameworks */,
+				6647F8AD12F9D4364EF73814 /* Pods */,
+				3F4D9034E65E519EDBD4BF91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,19 +146,19 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		A62809C61ABDE57FCCB971B1 /* Frameworks */ = {
+		3F4D9034E65E519EDBD4BF91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7E7F72BFBDFD4A2BCDDCD661 /* libPods.a */,
+				C06B1A548AFE3BBBC9A8E853 /* libPods-go5.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E9827A33C1DB5DEEBDEC4066 /* Pods */ = {
+		6647F8AD12F9D4364EF73814 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3D2FC7EC05AB39DFCC85B809 /* Pods.debug.xcconfig */,
-				AD8EC657D932445D3DC96331 /* Pods.release.xcconfig */,
+				E5AE7A5B9EAFCD5296AAB1D2 /* Pods-go5.debug.xcconfig */,
+				DE5942260DF56F8DE42BCF3E /* Pods-go5.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -170,12 +170,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F89DBFE1D987B9600397A69 /* Build configuration list for PBXNativeTarget "go5" */;
 			buildPhases = (
-				EFB83DC50AE8755B8C94D2E2 /* Check Pods Manifest.lock */,
+				56AA3DCF3AA5C998485C35F1 /* [CP] Check Pods Manifest.lock */,
 				1F89DBE51D987B9600397A69 /* Sources */,
 				1F89DBE61D987B9600397A69 /* Frameworks */,
 				1F89DBE71D987B9600397A69 /* Resources */,
-				FB7DFDB5C6B29F320D6B7569 /* Embed Pods Frameworks */,
-				6FE7A92490C03DD3D56C68DF /* Copy Pods Resources */,
+				AB48106BE884B0426281729E /* [CP] Embed Pods Frameworks */,
+				C6A6452D0EC40088D50AC95C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -237,49 +237,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6FE7A92490C03DD3D56C68DF /* Copy Pods Resources */ = {
+		56AA3DCF3AA5C998485C35F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		EFB83DC50AE8755B8C94D2E2 /* Check Pods Manifest.lock */ = {
+		AB48106BE884B0426281729E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-go5/Pods-go5-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FB7DFDB5C6B29F320D6B7569 /* Embed Pods Frameworks */ = {
+		C6A6452D0EC40088D50AC95C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-go5/Pods-go5-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -418,7 +418,7 @@
 		};
 		1F89DBFF1D987B9600397A69 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D2FC7EC05AB39DFCC85B809 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = E5AE7A5B9EAFCD5296AAB1D2 /* Pods-go5.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -434,7 +434,7 @@
 		};
 		1F89DC001D987B9600397A69 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD8EC657D932445D3DC96331 /* Pods.release.xcconfig */;
+			baseConfigurationReference = DE5942260DF56F8DE42BCF3E /* Pods-go5.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
