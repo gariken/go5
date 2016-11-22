@@ -2,7 +2,6 @@
 
 import UIKit
 import Firebase
-import CoreData
 
 
 @available(iOS 10.0, *)
@@ -23,51 +22,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.performSegue(withIdentifier: "Registration", sender: self)
     }
     
-    func placeholderColor(){
-        eMail.attributedPlaceholder = NSAttributedString(string: "EMAIL", attributes:[NSForegroundColorAttributeName : UIColor.black])
-        password.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes:[NSForegroundColorAttributeName : UIColor.black])
+       @IBAction func loginButton(_ sender: AnyObject) {
+        autorization(login: eMail.text!, password: password.text!)
     }
     
-    @IBAction func loginButton(_ sender: AnyObject) {
-        zapros()
-    }
+    //MARK: Firebase Stack
     
-    //MARK: CoreData Stack
-    func zapros(){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Registration")
-        
-        fetchRequest.returnsObjectsAsFaults = false
-        
-        do{
-            let results = try context.fetch(fetchRequest)
-            for result in results as! [NSManagedObject]{
-                //  print(result.value(forKey: "login")!)
-                // print(result.value(forKey: "password")!)
-                let login = result.value(forKey: "login") as! String
-                let passwordOne = result.value(forKey: "password") as! String
-                if ((eMail.text != login) || (password.text != passwordOne)){
-                    correctLabel.text = "Данные введены не верно"
-                } else{
-                    correctLabel.text = "Милости прошу к нашему шалашу"
-                    self.performSegue(withIdentifier: "go", sender: self)
-                }
-                
+    func autorization(login: String, password: String){
+        FIRAuth.auth()?.signIn(withEmail: login, password: password, completion: { user, error in
+            if (error != nil){
+            self.alerView(title: "Ошибка", message: "Введены некоректные данные")
             }
-            
-        } catch{
-            print(error)
-        }
+            else{
+                self.performSegue(withIdentifier: "login", sender: self)
+            }
+        })
     }
-    
-    
-    
     
     /**********/
-    
+    //MARK: UI
     func toolbar(){
         let toolbar = UIToolbar.init()
         toolbar.sizeToFit()
@@ -85,5 +58,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func placeholderColor(){
+        eMail.attributedPlaceholder = NSAttributedString(string: "EMAIL", attributes:[NSForegroundColorAttributeName : UIColor.black])
+        password.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes:[NSForegroundColorAttributeName : UIColor.black])
+    }
+    /*****************/
     
+    //MARK: ALertView
+    
+    func alerView(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "OK", style: .default) { (ok) in
+            print("ошибка")
+        }
+        
+        alertController.addAction(ok)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 }

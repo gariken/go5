@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import CoreData
 
 @available(iOS 10.0, *)
 class registrationViewController: UIViewController, UITextFieldDelegate {
@@ -28,7 +27,6 @@ class registrationViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         passwordRegistration.delegate = self
         toolbar()
-        alerView()
     }
 
     @IBAction func registrationButton(_ sender: Any) {
@@ -36,74 +34,20 @@ class registrationViewController: UIViewController, UITextFieldDelegate {
     }
 
 
-    //MARK: CoreData Stack
+    //MARK: Firebase Registration
     
     func saveData(login:String, password:String){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let newUSer = NSEntityDescription.insertNewObject(forEntityName: "Registration", into: context)
-        
-        newUSer.setValue(login, forKey: "login")
-        newUSer.setValue(password, forKey: "password")
-        
-        if ((emailRegistration.text?.isEmpty)! || (passwordRegistration.text?.isEmpty)!) {
-            errorLabel.text = "пусто, пусто"
-        }
-            
-        else{
-            errorLabel.text = "не пусто"
-            do{
-                try context.save()
-                print("saved")
-                errorLabel.text = "Данные успешно сохранены"
-                self.performSegue(withIdentifier: "vhod", sender: self)
+        FIRAuth.auth()?.createUser(withEmail: login, password: password, completion: { user, error in
+            if (error != nil){
+                self.alerView(title: "Ошибка", message: "Введенная Вами почта уже зарегистрированна, или некорректно введена")
             }
-            catch{
-                print("Ошибка - \(error)")
+            else{
+                self.alerViewTwo(title: "Вы успешно зарегистрировались!", message: "Чтобы зайти в приложение используйте своюэлектронную почту и пароль")
             }
-        }
+        })
     }
     
-    //MARK: CoreDataPrint
-    func printData(){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Registration")
-        
-        fetchRequest.returnsObjectsAsFaults = false
-        
-        do{
-            let results = try context.fetch(fetchRequest)
-            for result in results as! [NSManagedObject]{
-                print(result.value(forKey: "login")!)
-                print(result.value(forKey: "password")!)
-            }
-            
-        } catch{
-            print(error)
-        }
-    }
-    
-    /***********/
-    
-    
-    func alerView(){
-        let alertController = UIAlertController(title: "Регистрация", message: "Вы успешно зарегистрировались", preferredStyle: UIAlertControllerStyle.alert)
-        let okButton = UIAlertAction(title: "Ок", style: UIAlertActionStyle.default) {
-            UIAlertAction in
-            print("ok")
-        }
-        
-        alertController.addAction(okButton)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    
+    //MARK: Keyboard Dissmiss
     func toolbar(){
         let toolbar = UIToolbar.init()
         toolbar.sizeToFit()
@@ -121,8 +65,30 @@ class registrationViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
+    //MARK: AlertView
     
-
-
-
+    func alerView(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "OK", style: .default) { (ok) in
+            print("ошибка")
+        }
+        
+        alertController.addAction(ok)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func alerViewTwo(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "Выполнить вход", style: .default) { (ok) in
+            print("Все успешно")
+            self.performSegue(withIdentifier: "back", sender: self)
+        }
+        
+        alertController.addAction(ok)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
